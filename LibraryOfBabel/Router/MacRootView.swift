@@ -22,6 +22,9 @@ struct MacRootView: View {
                 NavigationLink(value: AppRoute.library) {
                     Label("Библиотека", systemImage: "building.columns")
                 }
+                
+                Divider()
+                
                 NavigationLink(value: AppRoute.settings) {
                     Label("Настройки", systemImage: "gearshape")
                 }
