@@ -33,5 +33,12 @@ struct TileView: View {
             )
         }
         .buttonStyle(.plain)
+        .onHover{ inside in
+            if inside {
+                NSCursor.pointingHand.push()
+            } else {
+                NSCursor.pop()
+            }
+        }
     }
 }
