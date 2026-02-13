@@ -14,7 +14,7 @@ struct MacRootView: View {
         NavigationSplitView {
             List(selection: $router.selectedRoute) {
                 NavigationLink(value: AppRoute.create) {
-                    Label("Создать", systemImage: "house")
+                    Label("Создать", systemImage: "wand.and.sparkles.inverse")
                 }
                 NavigationLink(value: AppRoute.home) {
                     Label("Главная", systemImage: "house")
@@ -41,5 +41,6 @@ struct MacRootView: View {
                 EmptyView()
             }
         }
+        .environmentObject(router)
     }
 }

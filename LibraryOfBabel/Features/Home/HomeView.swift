@@ -11,14 +11,23 @@ struct HomeView: View {
     @EnvironmentObject var router: AppRouter
     
     var body: some View {
-        TileView(
-            title: "Create", icon: ""
-        ) {
-            router.selectedRoute = .home
+        VStack(alignment: .leading) {
+            Text("Действия")
+                .font(.title2)
+            
+            Divider()
+            
+            HStack {
+                TileView(
+                    title: "Create", icon: "wand.and.sparkles.inverse"
+                ) {
+                    router.selectedRoute = .create
+                }
+                
+                Spacer()
+            }
+            Spacer()
         }
+        .padding(24)
     }
-}
-
-#Preview {
-    HomeView()
 }
