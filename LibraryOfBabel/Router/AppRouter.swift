@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 enum AppRoute {
-    case home, library, settings
+    case create, home, library, settings
 }
 
 final class AppRouter: ObservableObject {

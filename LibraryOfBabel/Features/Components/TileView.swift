@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct TileView: View {
+    let title: String
+    let icon: String
+    var action: () -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            action()
+        } label: {
+            VStack {
+                Text(title)
+                    .font(.title2)
+                
+                Image(systemName: icon)
+                    .font(.system(size: 32))
+            }
+            .frame(width: 120, height: 120)
+            .background(.ultraThinMaterial)
+            .cornerRadius(24)
+            .shadow(radius: 4)
+            .overlay(
+                RoundedRectangle(cornerRadius: 24)
+                    .stroke(Color.white, lineWidth: 0.5 )
+            )
+        }
+        .buttonStyle(.plain)
     }
-}
-
-#Preview {
-    TileView()
 }

@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var router: AppRouter
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TileView(
+            title: "Create", icon: ""
+        ) {
+            router.selectedRoute = .home
+        }
     }
 }
 
