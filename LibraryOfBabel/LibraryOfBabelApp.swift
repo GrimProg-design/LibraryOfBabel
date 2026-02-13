@@ -9,24 +9,23 @@ import SwiftUI
 import SwiftData
 
 @main
-struct LibraryOfBabelApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
+struct The_Library_of_BabelonApp: App {
+    @AppStorage("selectedAppearance") private var selectedAppearance = 0
+    @StateObject private var router = AppRouter()
+    
+    var scheme: ColorScheme? {
+        if selectedAppearance == 1 { return .light }
+        if selectedAppearance == 2 { return .dark }
+        return nil
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .preferredColorScheme(scheme)
+                .environmentObject(router)
         }
-        .modelContainer(sharedModelContainer)
     }
 }
+ 
+
